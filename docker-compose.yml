@@ -15,7 +15,6 @@ services:
       - "traefik.http.services.vaultwarden.loadbalancer.server.port=8000"
       - "traefik.http.routers.vaultwarden.tls=true"
       - "traefik.http.routers.vaultwarden.tls.certresolver=lets-encrypt"
-      -
 networks:
     web:
         external: true
