@@ -1,0 +1,3 @@
+[submodule "write-ups"]
+	path = write-ups
+	url = https://github.com/GCC-ENSIBS/write-ups

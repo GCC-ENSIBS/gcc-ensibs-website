@@ -15,8 +15,6 @@ export default function Admin(props: Props) {
             <Header active={"/admin"}/>
             <div className={"flex flex-col mx-auto gap-6 max-w-screen-md items-center justify-items"}>
                 <h2 class={"text-4xl font-bold text-center"}>Bonjour, {props.data}</h2>
-                {/* Markdown uploader */}
-                <MarkdownAdd/>
                 {/* Hall of fame */}
                 <FameAdd/>
             </div>

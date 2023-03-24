@@ -4,6 +4,8 @@ interface State {
     name: string;
 }
 
+const apiUrl = "https://api.github.com";
+
 export async function handler(
     req: Request,
     ctx: MiddlewareHandlerContext<State>,
@@ -12,36 +14,47 @@ export async function handler(
     const cookies = req.headers.get("cookie");
     const accessToken = cookies?.split(";").find((cookie) => cookie.includes("access_token"))?.split("=")[1];
 
-    const result = await fetch("https://api.github.com/user", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": "token " + accessToken
-        }
-    })
-
-    const data = await result.json();
-
-    // Get organization
-    const orgResult = await fetch(`https://api.github.com/users/${data.login}/orgs`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": "token " + accessToken
-        }
-    })
-
-    const orgData = await orgResult.json();
-
-    // Check if user is in organization GCC-ENSIBS
-    const isInOrg = orgData.find((org: any) => org.login === "GCC-ENSIBS");
-
-    if(!isInOrg) {
-        return new Response("Not in organization", {status: 403});
+    if (!accessToken) {
+        return new Response("No access token", {status: 403});
     }
 
-    ctx.state.name = data.login;
+
+    const data = await Promise.all([getUserData(accessToken), getOrg()]).then(([userData, orgsMembers]) => {
+        // console.log("User data:", userData);
+        // console.log("User organizations:", orgsMembers);
+
+        const isInOrg = orgsMembers.some((org: any) => {
+            return org.login === userData.login;
+        });
+
+        return {
+            isInOrg,
+            userData,
+        }
+    });
+
+    if(!data.isInOrg) {
+        return new Response("You are not in the GCC organization", {status: 403});
+    }
+
+    console.log("Data:", data);
+
+    ctx.state.name = data.userData.name;
     return await ctx.next();
 }
+
+// Get the user's data
+const getUserData = async (accessToken: string) => {
+    const response = await fetch(`${apiUrl}/user`, {
+        headers: {
+            Authorization: `token ${accessToken}`,
+        },
+    });
+    return response.json();
+};
+
+// Get the GCC organization
+const getOrg = async () => {
+    const response = await fetch(`${apiUrl}/orgs/GCC-ENSIBS/members`);
+    return response.json();
+};

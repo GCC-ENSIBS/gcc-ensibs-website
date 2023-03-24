@@ -3,8 +3,9 @@ import {useState} from "preact/hooks";
 export default function Menu() {
     const menus = [
         {name: "Home", href: "/"},
-        {name: "Challenges", href: "/about"},
+        {name: "About", href: "/about"},
         {name: "Hall of Fame", href: "/fame"},
+        {name: "Projects", href: "/projects"},
     ]
     const [dropdownOpen, setdropdownOpen] = useState(false);
     return (
