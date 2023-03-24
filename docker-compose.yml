@@ -2,19 +2,21 @@
 version: '3.1'
 
 services:
-
-  mongo:
-    image: mongo:latest
-    restart: always
+  web:
+    build: .
     environment:
-        MONGO_INITDB_ROOT_USERNAME: root
-        MONGO_INITDB_ROOT_PASSWORD: example
-    ports:
-        - "27017:27017"
+      - ENVIRONMENT=${ENVIRONMENT}
+    networks:
+        - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.vaultwarden.entrypoints=web,websecure"
+      - "traefik.http.routers.vaultwarden.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.services.vaultwarden.loadbalancer.server.port=80"
+      - "traefik.http.routers.vaultwarden.tls=true"
+      - "traefik.http.routers.vaultwarden.tls.certresolver=lets-encrypt"
 
-#  web:
-#    build: .
-#    ports:
-#      - "8000:8000"
-#    depends_on:
-#      - mongo
+networks:
+    web:
+        external: true
