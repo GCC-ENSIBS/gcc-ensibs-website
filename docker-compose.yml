@@ -15,9 +15,7 @@ services:
       - "traefik.http.services.vaultwarden.loadbalancer.server.port=80"
       - "traefik.http.routers.vaultwarden.tls=true"
       - "traefik.http.routers.vaultwarden.tls.certresolver=lets-encrypt"
-    env_file:
-      - .env.production
-
+      -
 networks:
     web:
         external: true
