@@ -2,15 +2,20 @@
 html {
     background-color: #3a3a3a;
 }
+
 h1, h2, h3, h4, h5, h6 {
     color: #fffffe;
 }
 
 a {
-    color: #f9bc60;
-    border-color: #f9bc60;
+    color: #f99712;
+    border-color: #f99712;
 }
 
 a:hover {
     color: #FCD704;
+}
+
+p {
+    color: #fffffe;
 }
