@@ -12,7 +12,9 @@ import * as $5 from "./routes/api/fame.ts";
 import * as $6 from "./routes/api/login.ts";
 import * as $7 from "./routes/fame.tsx";
 import * as $8 from "./routes/index.tsx";
-import * as $9 from "./routes/projects.tsx";
+import * as $9 from "./routes/projects/index.tsx";
+import * as $10 from "./routes/write-ups/[name].tsx";
+import * as $11 from "./routes/write-ups/index.tsx";
 import * as $$0 from "./islands/BlinkingCursor.tsx";
 import * as $$1 from "./islands/FameAdd.tsx";
 import * as $$2 from "./islands/MarkdownAdd.tsx";
@@ -29,7 +31,9 @@ const manifest = {
     "./routes/api/login.ts": $6,
     "./routes/fame.tsx": $7,
     "./routes/index.tsx": $8,
-    "./routes/projects.tsx": $9,
+    "./routes/projects/index.tsx": $9,
+    "./routes/write-ups/[name].tsx": $10,
+    "./routes/write-ups/index.tsx": $11,
   },
   islands: {
     "./islands/BlinkingCursor.tsx": $$0,

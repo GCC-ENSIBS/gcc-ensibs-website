@@ -6,6 +6,7 @@ export default function Menu() {
         {name: "About", href: "/about"},
         {name: "Hall of Fame", href: "/fame"},
         {name: "Projects", href: "/projects"},
+        {name: "Write-ups", href: "/write-ups"}
     ]
     const [dropdownOpen, setdropdownOpen] = useState(false);
     return (

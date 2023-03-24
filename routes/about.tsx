@@ -7,8 +7,11 @@ export default function About() {
         <>
             <MyHead/>
             <Header active={"/about"}/>
+            <div className="max-w-screen-lg mx-auto p-4 my-8">
+                <h1 className="text-4xl font-bold">About us</h1>
+                <p className="text-xl">Who we are. </p>
+            </div>
             <div class="mx-auto max-w-screen-lg items-center flex flex-col justify-center my-8">
-                <h2 class="text-4xl font-bold text-center my-4">Bureau</h2>
                 <div class="flex flex-wrap">
                     <ProfileBureau picture={"/profilepicture/shadows.webp"} name={"Shadowwws"} job={"Président"}/>
                 </div>

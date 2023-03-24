@@ -6,8 +6,9 @@ export default function Fame() {
         <>
             <MyHead/>
             <Header active={"/fame.ts"}/>
-            <div class="mx-auto max-w-screen-lg items-center flex flex-col justify-center gap-4 mb-14">
-                <h1 class="text-4xl font-bold text-center my-4">Hall of Fame</h1>
+            <div className="max-w-screen-lg mx-auto p-4 my-8">
+                <h1 className="text-4xl font-bold">Hall of Fame</h1>
+                <p className="text-xl">Our hall of fame. Thanks to our members.</p>
             </div>
         </>
     )
