@@ -25,6 +25,6 @@ export const handler: Handlers = {
         const data = await result.json();
         const accessToken = data.access_token;
 
-        return new Response("OK", {status:303, headers: {"Set-Cookie": `access_token=${accessToken}; HttpOnly; SameSite=Lax; Path=/`, "Location": "/"}})
+        return new Response("OK", {status:303, headers: {"Set-Cookie": `access_token=${accessToken}; HttpOnly; SameSite=Lax; Path=/`, "Location": "/admin"}})
     }
 }

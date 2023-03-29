@@ -1,6 +1,7 @@
 import Header from "../../components/Header.tsx";
 import {Head} from "$fresh/src/runtime/head.ts";
 import {Handlers, PageProps} from "$fresh/src/server/types.ts";
+import {AllText} from "../../utils/text.ts";
 
 export default function WriteUps(props: PageProps) {
     return (
@@ -11,8 +12,8 @@ export default function WriteUps(props: PageProps) {
             </Head>
             <Header active={"/write-ups"}/>
             <div className="max-w-screen-lg mx-auto p-4 my-8">
-                <h1 className="text-4xl font-bold">Write-ups</h1>
-                <p className="text-xl">Here are some write-ups of CTFs we have participated in.</p>
+                <h1 className="text-4xl font-bold">{AllText.en.writeups}</h1>
+                <p className="text-xl">{AllText.en.writeupsSubtitle}</p>
             </div>
             <div className={" max-w-screen-lg mx-auto p-4 my-8 flex flex-wrap"}>
                 {props.data.map((writeup: string) => {

@@ -1,6 +1,22 @@
 export const AllText = {
-    fr: {
-        welcome: "Bienvenue chez GCC",
-        description: "GCC (Galette Cidre CTF) est un club fondé par des étudiants de l'École Nationale Supérieure d'Ingénieur de Bretagne Sud (ENSIBS) en 2021. La mission du club est de créer un environnement stimulant visant à découvrir et explorer l'univers de la cybersécurité, par le biais de compétitions appelées CTF (capture the flag). GCC participe à la création et l'organisation de ces événements tout en permettant la constitution d'équipes représentant le club et l'école pour les évènements extérieurs. Le club promeut le partage et le retour d'expérience de ses membres via l'organisation de sessions hebdomadaires."
+    en: {
+        welcome: "Welcome to GCC",
+        description: "GCC (Galette Cidre CTF) is a student-founded club at ENSIBS with the aim of fostering a stimulating environment to discover and explore the field of cybersecurity through CTF (Capture the Flag) competitions. The club actively participates in the creation and organization of such events, while facilitating the formation of teams to represent the club and the institution in external competitions. In addition, GCC promotes knowledge sharing and experience sharing among its members through weekly sessions.",
+        socials: "Socials",
+
+        about: "About",
+        aboutSubtitle: "Who we are.",
+
+        fame: "Hall of Fame",
+        fameSubtitle:"Our hall of fame. Our best players.",
+
+        projects: "Projects",
+        projectsSubtitle: "Here are some projects we are in.",
+
+        writeups: "Write-ups",
+        writeupsSubtitle: "Here are some write-ups of CTFs we have participated in.",
+
+        contactTitle: "Contact",
+        mail: "Contactez-nous par mail à contact[@]gcc-ensibs.fr",
     },
 }

@@ -1,6 +1,7 @@
 import MyHead from "../components/MyHead.tsx";
 import Header from "../components/Header.tsx";
 import ProfileBureau from "../components/ProfileBureau.tsx";
+import {AllText} from "../utils/text.ts";
 
 export default function About() {
     return (
@@ -8,8 +9,8 @@ export default function About() {
             <MyHead/>
             <Header active={"/about"}/>
             <div className="max-w-screen-lg mx-auto p-4 my-8">
-                <h1 className="text-4xl font-bold">About us</h1>
-                <p className="text-xl">Who we are. </p>
+                <h1 className="text-4xl font-bold">{AllText.en.about}</h1>
+                <p className="text-xl">{AllText.en.aboutSubtitle}</p>
             </div>
             <div class="mx-auto max-w-screen-lg items-center flex flex-col justify-center my-8">
                 <div class="flex flex-wrap">
@@ -31,10 +32,8 @@ export default function About() {
 
             {/* Contact */}
             <div className="mx-auto max-w-screen-md items-center flex flex-col justify-center gap-4 mb-8">
-                <h2 className="text-4xl font-bold text-center">Contactez-nous</h2>
-                <p className="text-xl text-center font-italic">Vous pouvez nous contacter par mail à l'adresse
-                    <a href="mailto:contact@gcc-ensibs.fr">{" "}suivante</a>
-                </p>
+                <h2 className="text-4xl font-bold text-center">{AllText.en.contactTitle}</h2>
+                <p className="text-xl text-center font-italic">{AllText.en.mail}</p>
             </div>
         </>
     )

@@ -15,14 +15,11 @@ export async function handler(
     const accessToken = cookies?.split(";").find((cookie) => cookie.includes("access_token"))?.split("=")[1];
 
     if (!accessToken) {
-        return new Response("No access token", {status: 403});
+        return new Response("Please Login", {status: 301, headers: {"Location": "/login"}});
     }
 
 
     const data = await Promise.all([getUserData(accessToken), getOrg()]).then(([userData, orgsMembers]) => {
-        // console.log("User data:", userData);
-        // console.log("User organizations:", orgsMembers);
-
         const isInOrg = orgsMembers.some((org: any) => {
             return org.login === userData.login;
         });
@@ -36,8 +33,6 @@ export async function handler(
     if(!data.isInOrg) {
         return new Response("You are not in the GCC organization", {status: 403});
     }
-
-    console.log("Data:", data);
 
     ctx.state.name = data.userData.name;
     return await ctx.next();

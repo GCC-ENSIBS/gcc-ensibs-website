@@ -13,11 +13,11 @@ export default function Home() {
             <Header active={"/"}/>
             <div class="mx-auto max-w-screen-lg items-center flex flex-col justify-center gap-4 mb-14">
                 <img src={"/logo.svg"} class={"w-1/5 -mt-12 mx-auto shadow-2xl rounded-full hover:animate-glitch bg-white p-1"} alt={"Logo GCC"}/>
-                <h1 class="text-4xl font-bold text-center my-4">{AllText.fr.welcome}</h1>
-                <p class="text-xl text-center">{AllText.fr.description}</p>
+                <h1 class="text-4xl font-bold text-center my-4">{AllText.en.welcome}</h1>
+                <p class="text-xl text-center">{AllText.en.description}</p>
 
                 {/* Réseaux Sociaux */}
-                <p className="text-4xl font-bold text-center my-4">Nos Réseaux Sociaux</p>
+                <p className="text-4xl font-bold text-center my-4">{AllText.en.socials}</p>
                 <div className="flex flex-wrap justify-center gap-4 mb-14">
                     <a className="text-md text-center font-italic" href="https://twitter.com/gcc_ensibs">
                         <IconBrandTwitter size={75}/>
