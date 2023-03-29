@@ -14,7 +14,7 @@ export default function Login() {
                     <p className={"text-xl font-italic text-center"}>Connexion pour le panel Admin.</p>
                     <p className={"text-xl font-italic text-center"}>Si vous n'êtes pas dans l'organisation GitHub GCC - ENSIBS vous ne pourrez pas y accéder :)</p>
                 </div>
-                <a href={"/api/login"} class={"text-white font-bold flex flex-row items-center justify-items bg-gray-800 p-4 m-4 rounded-xl"}><IconBrandGithub class={"text-white"} size={60}/>Login with GitHub</a>
+                <a href={"/api/login"} class={"text-white font-bold flex flex-row items-center justify-items bg-gray-800 p-4 m-4 hover:text-gray-500 rounded-xl"}><IconBrandGithub class={"text-white"} size={60}/>Login with GitHub</a>
             </div>
         </>
 
