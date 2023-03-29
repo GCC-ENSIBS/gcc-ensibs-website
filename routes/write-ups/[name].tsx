@@ -1,7 +1,8 @@
 import {Handlers, PageProps} from "$fresh/server.ts";
 import Header from "../../components/Header.tsx";
-import {CSS, render} from "https://deno.land/x/gfm/mod.ts";
+import {CSS} from "https://deno.land/x/gfm/mod.ts";
 import {Head} from "$fresh/src/runtime/head.ts";
+import {Marked} from "../../markdown/mod.ts";
 
 export default function WriteUpsReading(props: PageProps) {
     const body = props.data;
@@ -31,13 +32,13 @@ export const handler: Handlers = {
         const decoder = new TextDecoder("utf-8");
         let markdown;
         try {
-            markdown = decoder.decode(Deno.readFileSync(`./write-ups/${name}.md`));
+            markdown = decoder.decode(await Deno.readFile(`./write-ups/${name}.md`));
         } catch (e) {
             return ctx.renderNotFound();
         }
         // render the markdown
-        const html = render(markdown);
+        const markup = Marked.parse(markdown);
 
-        return ctx.render(html);
+        return ctx.render(markup.content);
     }
 };
