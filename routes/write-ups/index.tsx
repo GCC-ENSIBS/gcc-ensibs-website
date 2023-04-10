@@ -55,7 +55,10 @@ export const handler: Handlers = {
         for await (const dirEntry of Deno.readDir('./write-ups')) {
             if (dirEntry.isFile && dirEntry.name.endsWith(".md")) {
                 const markdown = Marked.parse(decoder.decode(await Deno.readFile(`./write-ups/${dirEntry.name}`)));
-                writeups.push({filename: dirEntry.name, title: markdown.meta.title, description: markdown.meta.description, publish_date: markdown.meta.publish_date, author: markdown.meta.author, tags: markdown.meta.tags})
+                // cehck if markdown has all required fields
+                if (markdown.meta.title && markdown.meta.description && markdown.meta.publish_date && markdown.meta.author && markdown.meta.tags) {
+                    writeups.push({filename: dirEntry.name, title: markdown.meta.title, description: markdown.meta.description, publish_date: markdown.meta.publish_date, author: markdown.meta.author, tags: markdown.meta.tags})
+                }
             }
         }
 
