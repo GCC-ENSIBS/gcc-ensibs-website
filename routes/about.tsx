@@ -32,8 +32,7 @@ export default function About() {
             {/* Contact */}
             <div className="mx-auto max-w-screen-md items-center flex flex-col justify-center gap-4 mb-8">
                 <h2 className="text-4xl font-bold text-center">Contactez-nous</h2>
-                <p className="text-xl text-center font-italic">Vous pouvez nous contacter par mail à l'adresse
-                    <a href="mailto:contact@gcc-ensibs.fr">{" "}suivante</a>
+                <p className="text-xl text-center font-italic">Vous pouvez nous contacter par mail à l'adresse <span class={"font-bold text-[#f99712]"}>contact[@]gcc-ensibs.fr</span>
                 </p>
             </div>
         </>
