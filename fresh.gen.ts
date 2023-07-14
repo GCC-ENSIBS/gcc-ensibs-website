@@ -11,22 +11,13 @@ import * as $5 from "./routes/api/callback.ts";
 import * as $6 from "./routes/api/login.ts";
 import * as $7 from "./routes/fame.tsx";
 import * as $8 from "./routes/index.tsx";
-<<<<<<< HEAD
-import * as $9 from "./routes/projects/index.tsx";
-import * as $10 from "./routes/write-ups/[name].tsx";
-import * as $11 from "./routes/write-ups/index.tsx";
-import * as $$0 from "./islands/AddCTFFame.tsx";
-import * as $$1 from "./islands/AddTeamFame.tsx";
-import * as $$2 from "./islands/BlinkingCursor.tsx";
-=======
 import * as $9 from "./routes/login.tsx";
 import * as $10 from "./routes/projects/index.tsx";
 import * as $11 from "./routes/write-ups/[name].tsx";
 import * as $12 from "./routes/write-ups/index.tsx";
-import * as $$0 from "./islands/BlinkingCursor.tsx";
-import * as $$1 from "./islands/FameAdd.tsx";
-import * as $$2 from "./islands/MarkdownAdd.tsx";
->>>>>>> 34c49d5e33c0148cf6eac5682b58d30f3979301c
+import * as $$0 from "./islands/AddCTFFame.tsx";
+import * as $$1 from "./islands/AddTeamFame.tsx";
+import * as $$2 from "./islands/BlinkingCursor.tsx";
 import * as $$3 from "./islands/Menu.tsx";
 
 const manifest = {

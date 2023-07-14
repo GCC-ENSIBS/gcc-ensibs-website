@@ -9,8 +9,8 @@ export default function About() {
             <MyHead/>
             <Header active={"/about"}/>
             <div className="max-w-screen-lg mx-auto p-4 my-8">
-                <h1 className="text-4xl font-bold">{AllText.en.about}</h1>
-                <p className="text-xl">{AllText.en.aboutSubtitle}</p>
+                <h1 className="text-4xl font-bold">About us</h1>
+                <p className="text-xl">Whoe we are.</p>
             </div>
             <div class="mx-auto max-w-screen-lg items-center flex flex-col justify-center my-8">
                 <div class="flex flex-wrap justify-center">
@@ -28,14 +28,9 @@ export default function About() {
 
             {/* Contact */}
             <div className="mx-auto max-w-screen-md items-center flex flex-col justify-center gap-4 mb-8">
-<<<<<<< HEAD
                 <h2 className="text-4xl font-bold text-center">Contact us</h2>
                 <p className="text-xl text-center font-italic"><span class={"font-bold text-[#f99712]"}>contact[@]gcc-ensibs.fr</span>
                 </p>
-=======
-                <h2 className="text-4xl font-bold text-center">{AllText.en.contactTitle}</h2>
-                <p className="text-xl text-center font-italic">{AllText.en.mail}</p>
->>>>>>> 34c49d5e33c0148cf6eac5682b58d30f3979301c
             </div>
         </>
     )

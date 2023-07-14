@@ -1,6 +1,5 @@
 import Header from "../components/Header.tsx";
 import MyHead from "../components/MyHead.tsx";
-<<<<<<< HEAD
 import { Handlers } from "$fresh/src/server/types.ts";
 import db from "../utils/database/db.ts";
 import { CTF, Team } from "../utils/database/db.ts";
@@ -43,18 +42,6 @@ export default function HallOfFame(props: any) {
                   return <RankTeamFame team={team} />;
                 })}
               </div>
-=======
-import {AllText} from "../utils/text.ts";
-
-export default function Fame() {
-    return (
-        <>
-            <MyHead/>
-            <Header active={"/fame.ts"}/>
-            <div className="max-w-screen-lg mx-auto p-4 my-8">
-                <h1 className="text-4xl font-bold">{AllText.en.fame}</h1>
-                <p className="text-xl">{AllText.en.fameSubtitle}</p>
->>>>>>> 34c49d5e33c0148cf6eac5682b58d30f3979301c
             </div>
           );
         })}

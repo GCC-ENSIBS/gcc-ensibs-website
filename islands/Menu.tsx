@@ -18,16 +18,12 @@ export default function Menu() {
                 <div class="relative">
 
                     <button
-<<<<<<< HEAD
-                        onmouseenter={() => setdropdownOpen(!dropdownOpen)}
-=======
->>>>>>> 34c49d5e33c0148cf6eac5682b58d30f3979301c
                         class="flex items-center gap-2 text-white font-bold py-2 px-4 rounded"
+                        onMouseEnter={() => setdropdownOpen(true)}
                     >
                         <IconMenu class={"text-white"} size={35}/>
                     </button>
                     <div
-                        onmouseleave={() => setdropdownOpen(!dropdownOpen)}
                         class={
                             "absolute right-0 py-2 w-48 bg-white rounded-md shadow-xl z-10" +
                             (dropdownOpen ? " block" : " hidden")

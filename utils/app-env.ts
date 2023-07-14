@@ -9,14 +9,14 @@ const appEnv = {
 };
 
 
-const everyEnvVariableFilled = Object.values(appEnv).every(
-    (v) => v !== null && v !== undefined && v !== "" && !Number.isNaN(v)
-);
-if (!everyEnvVariableFilled) {
-    console.error(
-        `[ERROR] Not all env variables are correctly compiled, please check that each env variable has a value.`
-    );
-    Deno.exit(1);
-}
+// const everyEnvVariableFilled = Object.values(appEnv).every(
+//     (v) => v !== null && v !== undefined && v !== "" && !Number.isNaN(v)
+// );
+// if (!everyEnvVariableFilled) {
+//     console.error(
+//         `[ERROR] Not all env variables are correctly compiled, please check that each env variable has a value.`
+//     );
+//     Deno.exit(1);
+// }
 
 export default appEnv;
