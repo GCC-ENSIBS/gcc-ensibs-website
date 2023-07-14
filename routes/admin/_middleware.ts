@@ -34,6 +34,8 @@ export async function handler(
         return new Response("You are not in the GCC organization", {status: 403});
     }
 
+    console.log("[INFO] User " + data.userData.name + " logged in the GCC organization");
+
     ctx.state.name = data.userData.name;
     return await ctx.next();
 }

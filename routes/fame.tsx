@@ -2,10 +2,10 @@ import Header from "../components/Header.tsx";
 import MyHead from "../components/MyHead.tsx";
 import { Handlers } from "$fresh/src/server/types.ts";
 import db from "../utils/database/db.ts";
-import { Fame } from "../utils/database/db.ts";
+import { CTF, Team } from "../utils/database/db.ts";
+import RankTeamFame from "../components/RankTeamFame.tsx";
 
 export default function HallOfFame(props: any) {
-  console.log(props.data);
   return (
     <>
       <MyHead />
@@ -15,31 +15,33 @@ export default function HallOfFame(props: any) {
         <p className="text-xl">Our hall of fame. Thanks to our members.</p>
       </div>
       {/* Hall of Fame */}
-      <div className={" max-w-screen-lg mx-auto p-4 my-8 flex flex-wrap"}>
+      <div className={"max-w-screen-lg mx-auto p-4 my-8 flex flex-wrap gap-4"}>
         {props.data.map((fame: any) => {
           return (
             <div
-              className={"w-full p-4 block bg-gray-800 rounded-md p-4 hover:scale-105 transform transition duration-500"}
+              className={"w-full p-4 bg-gray-800 rounded-md p-4 hover:scale-105 transform transition duration-500"}
             >
               {/* CTF Title */}
-              <div className={"flex items-end gap-2"}>
+              <div className={"flex items-end gap-2 mb-4"}>
                 <h2 className={"text-2xl text-left font-bold"}>
-                  {fame.ctf_name}
+                  {fame.ctf.ctf_name}
                 </h2>
                 <p className={"text-gray-400 font-italic"}>
-                  {fame.location}
+                  {fame.ctf.location}
                 </p>
                 <p className={"text-gray-40"}>
-                  {fame.nb_players} players
+                  {fame.ctf.nb_players} players
                 </p>
                 <p className={"text-gray-400 font-italic"}>
-                  {fame.date}
+                  {fame.ctf.date}
                 </p>
               </div>
               {/* Teams */}
-              <p className={"text-center font-italic text-gray-400"}>
-                {fame.team}
-              </p>
+              <div>
+                {fame.teams.map((team: any) => {
+                  return <RankTeamFame team={team} />;
+                })}
+              </div>
             </div>
           );
         })}
@@ -49,12 +51,27 @@ export default function HallOfFame(props: any) {
 }
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
-    const fame = [];
-    for (const team of db.findMany(Fame, {})) {
-      fame.push(team);
-    }
+  GET(req, ctx) {
+    // Get all the CTFs with all the teams
+    const ctfs = db.findMany(CTF, {});
+    const teams = db.findMany(Team, {});
+    let fame: any[] = [];
 
+    // for each CTF, get the teams who participated with ctf_id
+    const data = ctfs.map((ctf: CTF) => {
+      const ctf_teams = teams.filter((team: any) => {
+        return team.ctf_id === ctf.id;
+      });
+      fame.push({
+        ctf: ctf,
+        teams: ctf_teams,
+      });
+
+      // sort teams by rank
+      fame.sort((a: any, b: any) => {
+        return a.teams.rank - b.teams.rank;
+      });
+    });
     return ctx.render(fame);
   },
 };

@@ -21,6 +21,8 @@ export const handler: Handlers = {
             })
         })
 
+        console.log("[INFO] Callback received from Github Login");
+
         // Set data in cookie
         const data = await result.json();
         const accessToken = data.access_token;

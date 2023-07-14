@@ -60,6 +60,7 @@ export const handler: Handlers = {
     const writeups = [];
     const decoder = new TextDecoder("utf-8");
 
+    // Get the meta data of each write-up
     for await (const dirEntry of Deno.readDir("./write-ups")) {
       if (dirEntry.isFile && dirEntry.name.endsWith(".md")) {
         let markup;

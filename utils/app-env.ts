@@ -15,7 +15,7 @@ const everyEnvVariableFilled = Object.values(appEnv).every(
 );
 if (!everyEnvVariableFilled) {
     console.error(
-        `Not all env variables are correctly compiled, please check that each env variable has a value.`
+        `[ERROR] Not all env variables are correctly compiled, please check that each env variable has a value.`
     );
     Deno.exit(1);
 }

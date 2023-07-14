@@ -1,9 +1,7 @@
 import { SSQL, SSQLTable } from "https://deno.land/x/smallorm_sqlite@0.2.1/lib/SmallSQLite.ts"
 
-export class Fame extends SSQLTable {
+export class CTF extends SSQLTable {
     ctf_name = "";
-    team = "";
-    rank = -1;
     location = "";
     link_ctftime = "";
     link_linkedin = "";
@@ -12,6 +10,13 @@ export class Fame extends SSQLTable {
     date = new Date();
 }
 
+export class Team extends SSQLTable {
+    name = "";
+    rank = -1;
+    ctf_id = -1;
+}
+
+
 export class Projects extends SSQLTable {
     name = "";
     description = "";
@@ -19,8 +24,8 @@ export class Projects extends SSQLTable {
     date = new Date();
 }
 
-const db = new SSQL("./utils/database/database.db", [Fame]);
+const db = new SSQL("./utils/database/database.db", [CTF, Team, Projects]);
 
-
+console.log("[INFO] Database initialized");
 // export User and db;
 export default db;

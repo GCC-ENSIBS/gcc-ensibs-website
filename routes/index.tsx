@@ -18,7 +18,7 @@ export default function Home() {
                 <p class="text-xl text-center">{AllText.fr.description}</p>
 
                 {/* Réseaux Sociaux */}
-                <p className="text-4xl font-bold text-center my-4">Nos Réseaux Sociaux</p>
+                <p className="text-4xl font-bold text-center my-4">Our Social Media</p>
                 <div className="flex flex-wrap justify-center gap-4 mb-14">
                     <a className="text-md text-center font-italic" href="https://twitter.com/gcc_ensibs">
                         <IconBrandTwitter size={75}/>

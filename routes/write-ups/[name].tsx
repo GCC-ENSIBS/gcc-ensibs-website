@@ -27,6 +27,7 @@ export default function WriteUpsReading(props: PageProps) {
 
 export const handler: Handlers = {
     GET(req, ctx) {
+        // open the file
         const name = ctx.params.name;
         const decoder = new TextDecoder("utf-8");
         let markdown;
