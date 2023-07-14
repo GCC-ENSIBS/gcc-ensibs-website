@@ -1,7 +1,6 @@
 import { config as dotEnvConfig } from "https://deno.land/x/dotenv/mod.ts";
 dotEnvConfig({
-    export: true,
-    path: Deno.env.get("ENVIRONMENT") == "PRODUCTION" ? "./.env.production": "./.env.local",
+    export: true
 });
 
 const appEnv = {
