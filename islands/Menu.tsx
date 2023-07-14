@@ -1,7 +1,7 @@
 import {useState} from "preact/hooks";
 
 export default function Menu() {
-    const menus = [
+    const menus  = [
         {name: "Home", href: "/"},
         {name: "About", href: "/about"},
         {name: "Hall of Fame", href: "/fame"},
@@ -14,7 +14,7 @@ export default function Menu() {
             <div class="flex items-center">
                 <div class="relative">
                     <button
-                        onClick={() => setdropdownOpen(!dropdownOpen)}
+                        onmouseenter={() => setdropdownOpen(!dropdownOpen)}
                         class="flex items-center gap-2 text-white font-bold py-2 px-4 rounded"
                     >
                         <svg viewBox="0 0 100 80" width="40" height="40" fill={"white"}>
@@ -24,6 +24,7 @@ export default function Menu() {
                         </svg>
                     </button>
                     <div
+                        onmouseleave={() => setdropdownOpen(!dropdownOpen)}
                         class={
                             "absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-10" +
                             (dropdownOpen ? " block" : " hidden")

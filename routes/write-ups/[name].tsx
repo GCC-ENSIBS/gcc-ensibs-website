@@ -1,6 +1,6 @@
 import {Handlers, PageProps} from "$fresh/server.ts";
 import Header from "../../components/Header.tsx";
-import {CSS, render} from "https://deno.land/x/gfm/mod.ts";
+import {Marked} from  "../../utils/markdown/mod.ts";
 import {Head} from "$fresh/src/runtime/head.ts";
 
 export default function WriteUpsReading(props: PageProps) {
@@ -9,8 +9,8 @@ export default function WriteUpsReading(props: PageProps) {
         <>
             <Head>
                 <link rel={"stylesheet"} href={"/main.css"}/>
-                <style>{CSS}</style>
                 <title>Write-ups</title>
+                <link rel="stylesheet" href="/write-ups.css"/>
             </Head>
             <Header active={"/write-ups"}/>
             <div
@@ -26,7 +26,7 @@ export default function WriteUpsReading(props: PageProps) {
 }
 
 export const handler: Handlers = {
-    async GET(req, ctx) {
+    GET(req, ctx) {
         const name = ctx.params.name;
         const decoder = new TextDecoder("utf-8");
         let markdown;
@@ -36,8 +36,7 @@ export const handler: Handlers = {
             return ctx.renderNotFound();
         }
         // render the markdown
-        const html = render(markdown);
-
-        return ctx.render(html);
+        const markup = Marked.parse(markdown);
+        return ctx.render(markup.content);
     }
 };

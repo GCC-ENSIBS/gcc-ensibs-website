@@ -12,6 +12,7 @@ export default function Home() {
             <MyHead/>
             <Header active={"/"}/>
             <div class="mx-auto max-w-screen-lg items-center flex flex-col justify-center gap-4 mb-14">
+                {/* Logo & Title */}
                 <img src={"/logo.svg"} class={"w-1/5 -mt-12 mx-auto shadow-2xl rounded-full hover:animate-glitch bg-white p-1"} alt={"Logo GCC"}/>
                 <h1 class="text-4xl font-bold text-center my-4">{AllText.fr.welcome}</h1>
                 <p class="text-xl text-center">{AllText.fr.description}</p>
@@ -30,6 +31,7 @@ export default function Home() {
                     </a>
                 </div>
 
+                {/* Button CTFd */}
                 <a type="button" className="px-3 py-2 bg-[#f99712] text-white text-2xl font-bold rounded hover:text-white hover:bg-[#FCD704] flex gap-2"
                    href={"https://ctfd.gcc-ensibs.fr"}>
                     CTFd GCC<IconExternalLink class="w-8 h-8"/>
