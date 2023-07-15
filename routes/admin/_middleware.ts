@@ -17,6 +17,8 @@ export async function handler(
     if (!accessToken) {
         console.log("[INFO] User not logged in");
         return new Response("Please Login", {status: 301, headers: {"Location": "/login"}});
+    } else {
+        console.log("[INFO] User logged in");
     }
 
 
