@@ -1,6 +1,5 @@
 import {Handlers} from "$fresh/src/server/types.ts";
-import {CTF, Team} from "../../../../utils/database/db.ts";
-import db from "../../../../utils/database/db.ts"
+import db, { CTF, Team } from "../../../../utils/database/db.ts";
 
 export const handler: Handlers = {
     async POST(req, _ctx) {

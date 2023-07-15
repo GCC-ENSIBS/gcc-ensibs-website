@@ -1,7 +1,6 @@
 import MyHead from "../components/MyHead.tsx";
 import Header from "../components/Header.tsx";
 import ProfileBureau from "../components/ProfileBureau.tsx";
-import {AllText} from "../utils/text.ts";
 
 export default function About() {
     return (

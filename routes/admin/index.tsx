@@ -24,7 +24,7 @@ export default function Admin(props: Props) {
 }
 
 export const handler : Handlers = {
-    async GET(req,ctx) {
+    GET(req,ctx) {
         return ctx.render(ctx.state.name)
     }
 }

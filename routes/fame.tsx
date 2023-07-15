@@ -55,7 +55,7 @@ export const handler: Handlers = {
     // Get all the CTFs with all the teams
     const ctfs = db.findMany(CTF, {});
     const teams = db.findMany(Team, {});
-    let fame: any[] = [];
+    const fame: any[] = [];
 
     // for each CTF, get the teams who participated with ctf_id
     const data = ctfs.map((ctf: CTF) => {

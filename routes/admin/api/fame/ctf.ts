@@ -3,7 +3,7 @@ import {CTF} from "../../../../utils/database/db.ts";
 import db from "../../../../utils/database/db.ts"
 
 export const handler: Handlers = {
-    async GET(req, _ctx) {
+    async GET(_req, _ctx) {
         const ctf = await db.findMany(CTF, {});
         const ctf_name = ctf.map((ctf) => ctf.ctf_name);
         return new Response(JSON.stringify(ctf_name), {status: 200})
