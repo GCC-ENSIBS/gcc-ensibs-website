@@ -8,11 +8,11 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
-      - "traefik.http.routers.vaultwarden.entrypoints=web,websecure"
-      - "traefik.http.routers.vaultwarden.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.services.vaultwarden.loadbalancer.server.port=8000"
-      - "traefik.http.routers.vaultwarden.tls=true"
-      - "traefik.http.routers.vaultwarden.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.preprodgcc.entrypoints=web,websecure"
+      - "traefik.http.routers.preprodgcc.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.services.preprodgcc.loadbalancer.server.port=8000"
+      - "traefik.http.routers.preprodgcc.tls=true"
+      - "traefik.http.routers.preprodgcc.tls.certresolver=lets-encrypt"
     env_file:
       - .env
     volumes:
