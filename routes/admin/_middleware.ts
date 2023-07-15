@@ -15,6 +15,7 @@ export async function handler(
     const accessToken = cookies?.split(";").find((cookie) => cookie.includes("access_token"))?.split("=")[1];
 
     if (!accessToken) {
+        console.log("[INFO] User not logged in");
         return new Response("Please Login", {status: 301, headers: {"Location": "/login"}});
     }
 
