@@ -75,7 +75,7 @@ export const handler: Handlers = {
 
         if (
           !markup || !markup.meta.title || !markup.meta.author ||
-          !markup.meta.context
+          !markup.meta.context || !markup.meta.tags
         ) {
           continue;
         }
